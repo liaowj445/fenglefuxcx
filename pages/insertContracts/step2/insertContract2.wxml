@@ -1,0 +1,63 @@
+<!--pages/insertContracts/step2/insertCon.wxml-->
+<text>新增家政员(2/4)</text>
+<button bindtap="addPic">上传头像</button>
+  <view class="imgBox" wx:for="{{imgBox}}" wx:key="index">
+    <image src="{{item}}"  data-src="{{item}}" mode="aspectFill" bindtap="previewImage"></image>
+  </view>
+<text>籍贯</text>
+<view class="section">
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+      <view class="picker">
+        当前选择: {{region[0]}},{{region[1]}}
+      </view>
+    </picker>
+</view>
+<text>个性特点</text>
+<input type='text' id='specific' placeholder='请输内容'></input>
+<text>婚姻状况</text>
+<radio-group class="radio-group" bindchange="radioChange">
+    <label class="radio" >
+        是<radio value="" checked=""/>
+    </label>
+    <label class="radio" >
+        否<radio value="" checked=""/>
+    </label>
+</radio-group>
+<text>街道地址</text>
+<input type='text' id='specific' placeholder='请输内容'></input>
+<text>手机号码1</text>
+<input type='text' id='phone1' placeholder='请输内容'></input>
+<text>手机号码2</text>
+<input type='text' id='phone2' placeholder='请输内容'></input>
+<text>登记时间</text>
+<view class="section">
+    <picker mode="date" value="{{date}}" start="1970-09-01" end="2117-09-01" bindchange="bindDateChange">
+        <view class="picker">
+            当前选择: {{date}}
+        </view>
+    </picker>
+</view>
+<text>身高(CM)</text>
+<input type='text' id='height' placeholder='请输内容'></input>
+<text>体重(KG)</text>
+<input type='text' id='weight' placeholder='请输内容'></input>
+<text>现居地址</text>
+<view class="section">
+    <picker mode="region" bindchange="bindRegionChange2" value="{{region}}">
+      <view class="picker">
+        当前选择: {{region[0]}},{{region[1]}},{{region[2]}}
+      </view>
+    </picker>
+</view>
+<text>介绍人</text>
+<input type='text' id='weight' placeholder='请输内容'></input>
+<text>是否学员</text>
+<radio-group class="radio-group" bindchange="radioChange">
+    <label class="radio" >
+        是<radio value="" checked=""/>
+    </label>
+    <label class="radio" >
+        否<radio value="" checked=""/>
+    </label>
+</radio-group>
+<button type='default' bindtap="next">下一步</button>

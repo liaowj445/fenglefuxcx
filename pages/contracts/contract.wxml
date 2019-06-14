@@ -1,0 +1,22 @@
+<!--pages/pageTest/test.wxml-->
+<text>阿姨管理</text>
+<button bindtap='insertContract'>新增家政员</button>
+<view class='search'>
+  <view class='df search_arr'>
+    <icon class="searchcion" size='20' type='search'></icon>
+    <input bindinput='serach' id='serach' placeholder='查询的内容' style='float:left'>
+    </input>
+  </view>
+  <view bindtap='houduanButton1' class='sousuo'>查询</view>
+</view>
+
+<view class='line'>
+  <view class='auntlist'>阿姨姓名</view>
+  <view class='auntlist'>阿姨手机号</view>
+</view>
+<view  class='line'>
+  <view wx:for="{{list}}">
+    <view class='auntlist'>{{item.auntName}}</view> 
+    <view class='auntlist'>{{item.auntPhone}}</view> 
+  </view>
+</view>
