@@ -256,9 +256,9 @@ Page({
     })
   },
 
-  addClient:function(e){
+  addClient: function (e) {
     wx.navigateTo({
       url: '../addClient/test1/addMessage',
     })
-  }
+  } 
 })

@@ -1,6 +1,6 @@
 <!--pages/insertContract/insertContract.wxml-->
 <text>新增家政员(1/4)</text>
-<text>姓名 </text>
+<view><text>姓名 </text></view>
 <input type='text' id='name' bindinput='getName' placeholder='请输入姓名的内容'></input>
 <text>性别 </text>
   <radio-group class="radio-group" bindchange="radioChange">
@@ -37,7 +37,7 @@
     </radio-group>
 <view>
   <view>属相</view>
-  <button type="default" bindtap="modalTap1">{{animal}}</button>
+  <button type="default" bindtap="modalTap1">{{zodiac}}</button>
 </view>
 <modal title="属相" confirm-text="confirm" cancel-text="cancel" hidden="{{zodiacHidden}}" bindconfirm="modalChange1" bindcancel="modalChange1">
     <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" 

@@ -1,14 +1,45 @@
-// pages/pageTest/test.js
+// pages/contracts/contract.js
+
+var app = getApp()
+
 Page({
-
-
-
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    that.setData({
+      user: app.globalData.user
+    })
+    console.log(that.data.user);
+    wx.request({
+      url: 'https://localhost:8080/flf/app/getContract',
+      method: 'POST',
+      data: {
+        cardName: '',
+        user: that.data.user
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)//打印到控制台
+        var list = res.data.list;
+        if (list == null) {
+          var toastText = '数据获取失败';
+          wx.showToast({
+            title: toastText,
+            icon: '',
+            duration: 2000
+          });
+        } else {
+          that.setData({
+            list: list
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -67,7 +98,8 @@ Page({
     list: '',
     word: '',
     message: '',
-    serachName: ''
+    serachName: '',
+    user: null
   },
   serach:function(e){
     this.setData({
@@ -82,7 +114,8 @@ Page({
       url: 'https://localhost:8080/flf/app/getContract',
       method: 'POST',
       data:{
-        cardName: that.data.serachName
+        cardName: that.data.serachName,
+        user: that.data.user
       },
       header: {
         'content-type': 'application/json' // 默认值

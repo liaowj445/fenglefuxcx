@@ -1,4 +1,6 @@
 // pages/insertContract/insertContract.js
+var app = getApp()
+
 Page({
 
   /**
@@ -108,16 +110,21 @@ Page({
     //有效期
     activity:'',
     //身份证地址
-    address:'',
+    address: '',
     //身份证号码
-    card_id:''
+    card_id:'',
+    //当前登录用户
+    user:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      user: app.globalData.user
+    })
+    console.log(this.data.user)
   },
 
   /**
@@ -287,20 +294,23 @@ Page({
       card_id: e.detail.value
     });
   },
-
+  
   next: function(e){
     console.log(wx.getStorageSync("sessionId"))
     wx.request({
       url: 'https://localhost:8080/flf/app/insertContract',
       method: 'POST',
       data: {
-        constellation: this.data.constellation
+        constellation: this.data.constellation,
+        name: this.data.name,
+
+        user: this.data.user
       },
       header: {
         'content-type': 'application/json', // 默认值
         'Cookie': wx.getStorageSync("sessionId")
       },
-      success: function (res) {
+      success: res => {
         console.log(res.data)//打印到控制台
         var list = res.data.list;
         if (list == null) {
@@ -311,6 +321,9 @@ Page({
             duration: 2000
           });
         } else {
+          wx.navigateTo({
+            url: '../step2/insertContract2',
+          })
           that.setData({
             list: list
           })

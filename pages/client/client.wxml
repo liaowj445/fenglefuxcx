@@ -1,8 +1,7 @@
 <view class="client">
-  <icon class="searchcion" size='20' type='search'></icon>
   <input class='client_name_phone' bindinput='context' bindtap='click' placeholder="客户名或者手机号" placeholder-class="center" auto-focus/>
   <view>
-    <button wx:if = '{{flag}}' class = "search" bindtap='find'>查询</button>
+    <button wx:if = '{{flag}}' class = "search" bindtap='find'>搜索</button>
     <button wx:if = '{{!flag}}' class = "search" bindtap='addClient'>增加</button>
   </view>
   <view class='table'>

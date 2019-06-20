@@ -2,15 +2,18 @@
 //获取应用实例
 const app = getApp()
 
+
 Page({
   data: {
     motto: 'Hello World',
-    userInfo: {},
+    userInfo: '',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userName:'',
     pwd:'',
-    Cookie:''
+    code:'',
+    openid:'',
+    sessionkey:''
   },
   //事件处理函数
   bindViewTap: function() {
@@ -18,55 +21,89 @@ Page({
       url: '../logs/logs'
     })
   },
-
+  test: function () {
+    console.log('测试方法')
+  },
   login: function () {
-    wx.switchTab({
-      url: '../home/home',
-    });
+    this.test();
+    // wx.switchTab({
+    //   url: '../home/home',
+    // });
+    console.log('code值' + this.data.code);
     // wx.request({
-    //   url: 'https://localhost:8080/flf/app/AppLogin',
+    //   url: 'https://api.weixin.qq.com/sns/jscode2session'
+    //     + '?appid=wx35e87f3059bc3171'
+    //     + '&secret=947e43818c1e29bf7e77b57e00e81813'
+    //     + '&js_code=' + this.data.code
+    //     + '&grant_type=authorization_code',
+    //   // data:{
+    //   //   appid:'wx35e87f3059bc3171',
+    //   //   secret:'947e43818c1e29bf7e77b57e00e81813',
+    //   //   js_code:this.data.code,
+    //   //   grant_type:'authorization_code'
+    //   // },
     //   method: 'POST',
-    //   data: {
-    //     loginId: this.data.userName,
-    //     password: this.data.pwd
-    //   },
-    //   header: {
-    //     'content-type': 'application/json',
-    //     'Cookie': ''
-    //   },
     //   success: function (res) {
-    //     console.log(res.data)//打印到控制台
-    //     var msg = res.data;
-    //     if (msg == null) {
-    //       var toastText = '数据获取失败';
-    //       wx.showToast({
-    //         title: toastText,
-    //         icon: '',
-    //         duration: 2000
-    //       });
-    //     } else if(msg.success){
-    //       wx.setStorageSync('sessionId', msg.token);
-    //       console.log(msg.token)
-    //       wx.showToast({
-    //         title: msg.msg,
-    //         icon: '',
-    //         duration: 2000
-    //       });
-    //       wx.switchTab({
-    //         url: '../home/home',
-    //       });
-    //     } else{
-    //       wx.showToast({
-    //         title: msg.msg,
-    //         icon: '',
-    //         duration: 2000
-    //       });
-    //     }
+    //     console.log(res);
+    //     this.setData({
+    //       openid: res.data.openid,
+    //       sessionkey: res.data.sessionkey
+    //     })
     //   }
-    // })
+    // });
+    wx.request({
+      url: 'https://localhost:8080/flf/app/AppLogin',
+      method: 'POST',
+      data: {
+        loginId: this.data.userName,
+        password: this.data.pwd
+      },
+      header: {
+        'content-type': 'application/json',
+        'Cookie': ''
+      },
+      success: res => {
+        console.log(res.data)//打印到控制台
+        var msg = res.data;
+        if (msg == null) {
+          var toastText = '数据获取失败';
+          wx.showToast({
+            title: toastText,
+            icon: '',
+            duration: 2000
+          });
+        } else if(msg.success){
+          wx.setStorageSync('sessionId', msg.token);
+          app.globalData.user = msg.user
+          console.log(app.globalData.user)
+          wx.showToast({
+            title: msg.msg,
+            icon: '',
+            duration: 2000
+          });
+          wx.switchTab({
+            url: '../home/home',
+          });
+        } else{
+          wx.showToast({
+            title: msg.msg,
+            icon: '',
+            duration: 2000
+          });
+        }
+      }
+    })
   },
 
   onLoad: function () {
+    wx.login({
+      success: res => {
+        console.log(res);
+        this.setData({
+          code: res.code
+        });
+      }
+    });
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

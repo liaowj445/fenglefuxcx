@@ -1,144 +1,144 @@
-<view>
-  <view>
-    <text class='theme'>客户信息</text>
-    <view>
-      <view class="picker">
-        <picker mode="date" value="{{consultDate}}" start="1970-09-01" end="2117-09-01" bindchange="consultDateChange">
-          <text class='text'>咨询日期*: </text>
-          <input class='show_date' value='{{consultDate}}'></input>
-        </picker>
-      </view>
-      
-      <view class="picker">
-        <text class='text'>客户称呼*: </text>
-        <input class='input' bindinput = 'customersCall'></input>
-      </view>
-
-      <view class="picker">
-        <text class='text'>是否请过阿姨*: </text>
-        <view class='radio_class'>
-          <radio-group class="radio-group" bindchange="pleaseChange">
-              <label class="radio" >
-                  是<radio value="1" checked=""/>
-              </label>
-              <label class="radio" >
-                  否<radio value="2" checked=""/>
-              </label>
-          </radio-group>
-        </view>
-      </view>
-
-      <view class="picker">
-        <text class='text'>客户身份证号: </text>
-        <input class='input' bindinput = 'customersCard'></input>
-      </view>
-
-      <view class="picker">
-        <text class='text'>是否有阿姨在家*: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{selectAunt}}">
-              <text class='select_text'>{{selectAtHome[index].text}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow?(selectAtHome.length>2?100:selectAtHome.length*50):0}}rpx;'>
-              <text class='option' id='{{item.text}}' wx:for='{{selectAtHome}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item.text}}
-              </text>
-          </view>
-        </view>
-      </view>
-
-      <view class="picker">
-        <text class='text'>登记人: </text>
-        <input class='input' bindinput = 'registrant'></input>
-      </view>
-
-      <view class="picker">
-        <text class='text'>联系电话*: </text>
-        <input class='input' bindinput = 'phone'></input>
-      </view>
-
-      <view class="picker">
-        <text class='text'>售后跟单人*: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{selectmc}}">
-              <text class='select_text'>{{selectPeople[index1].userName}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow1?(selectPeople.length>2?100:selectPeople.length*50):0}}rpx;'>
-              <text class='option' id='{{item.id}}' wx:for='{{selectPeople}}' wx:key='this' data-index='{{index}}' catchtap='optionTap1'>{{item.userName}}
-              </text>
-          </view>
-        </view>
-      </view>
-
-      <view class="picker">
-        <text class='text'>介绍人: </text>
-        <input class='input' bindinput = 'introducer'></input>
-      </view>
-
-      <view class="picker">
-        <text class='text'>信息来源*: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{selectIfSc}}">
-              <text class='select_text'>{{selectSource[index2].text}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow2?(selectSource.length>2?100:selectSource.length*50):0}}rpx;'>
-              <text class='option' id='{{item.text}}' wx:for='{{selectSource}}' wx:key='this' data-index='{{index}}' catchtap='optionTap2'>{{item.text}}
-              </text>
-          </view>
-        </view>
-      </view>
-
-      <view class="picker">
-        
-        <text class='text'>是否绑定微信*: </text>
-        <view class='radio_class'>
-          <radio-group class="radio-group" bindchange="bindingChange">
-              <label class="radio" >
-                  是<radio value="1" checked=""/>
-              </label>
-              <label class="radio" >
-                  否<radio value="2" checked=""/>
-              </label>
-          </radio-group>
-        </view>
-      </view>
-
-      <view class="picker">
-        <text class='text'>所属分店: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{selectStore}}">
-              <text class='select_text'>{{selectShop[index3].name}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow3?(selectShop.length>2?100:selectShop.length*50):0}}rpx;'>
-              <text class='option' id='{{item.id}}' wx:for='{{selectShop}}' wx:key='this' data-index='{{index}}' catchtap='optionTap3'>{{item.name}}
-              </text>
-          </view>
-        </view>
-      </view>
-
-      <view class="picker">
-        <text class='text'>所属部门: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{selectBranch}}">
-              <text class='select_text'>{{selectDepart[index4].name}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow4?(selectDepart.length>2?100:selectDepart.length*50):0}}rpx;'>
-              <text class='option' id='{{item.id}}' wx:for='{{selectDepart}}' wx:key='this' data-index='{{index}}' catchtap='optionTap4'>{{item.name}}
-              </text>
-          </view>
-        </view>
-      </view>
-
-      <view class="picker">
-        <picker mode="date" value="{{wechatDate}}" start="1970-09-01" end="2117-09-01" bindchange="wechatDateChange">
-          <text class='text'>微信绑定时间: </text>
-          <input class='show_date' value='{{wechatDate}}'></input>
-        </picker>
-      </view>
-
-      <view>
-          <button wx:if = '{{flag}}' class='next_button' bindtap="next">下一步</button>
-          <button wx:if = '{{!flag}}' class='next_button1' >下一步</button>
-      </view>
-      </view>
-  </view>
+<view> 
+  <view> 
+    <text class='theme'>客户信息</text> 
+    <view> 
+      <view class="picker"> 
+        <picker mode="date" value="{{consultDate}}" start="1970-09-01" end="2117-09-01" bindchange="consultDateChange"> 
+          <text class='text'>咨询日期*: </text> 
+          <input class='show_date' value='{{consultDate}}'></input> 
+        </picker> 
+      </view> 
+       
+      <view class="picker"> 
+        <text class='text'>客户称呼*: </text> 
+        <input class='input' bindinput = 'customersCall'></input> 
+      </view> 
+ 
+      <view class="picker"> 
+        <text class='text'>是否请过阿姨*: </text> 
+        <view class='radio_class'> 
+          <radio-group class="radio-group" bindchange="pleaseChange"> 
+              <label class="radio" > 
+                  是<radio value="1" checked=""/> 
+              </label> 
+              <label class="radio" > 
+                  否<radio value="2" checked=""/> 
+              </label> 
+          </radio-group> 
+        </view> 
+      </view> 
+ 
+      <view class="picker"> 
+        <text class='text'>客户身份证号: </text> 
+        <input class='input' bindinput = 'customersCard'></input> 
+      </view> 
+ 
+      <view class="picker"> 
+        <text class='text'>是否有阿姨在家*: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{selectAunt}}"> 
+              <text class='select_text'>{{selectAtHome[index].text}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow?(selectAtHome.length>2?100:selectAtHome.length*50):0}}rpx;'> 
+              <text class='option' id='{{item.text}}' wx:for='{{selectAtHome}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item.text}} 
+              </text> 
+          </view> 
+        </view> 
+      </view> 
+ 
+      <view class="picker"> 
+        <text class='text'>登记人: </text> 
+        <input class='input' bindinput = 'registrant'></input> 
+      </view> 
+ 
+      <view class="picker"> 
+        <text class='text'>联系电话*: </text> 
+        <input class='input' bindinput = 'phone'></input> 
+      </view> 
+ 
+      <view class="picker"> 
+        <text class='text'>售后跟单人*: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{selectmc}}"> 
+              <text class='select_text'>{{selectPeople[index1].userName}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow1?(selectPeople.length>2?100:selectPeople.length*50):0}}rpx;'> 
+              <text class='option' id='{{item.id}}' wx:for='{{selectPeople}}' wx:key='this' data-index='{{index}}' catchtap='optionTap1'>{{item.userName}} 
+              </text> 
+          </view> 
+        </view> 
+      </view> 
+ 
+      <view class="picker"> 
+        <text class='text'>介绍人: </text> 
+        <input class='input' bindinput = 'introducer'></input> 
+      </view> 
+ 
+      <view class="picker"> 
+        <text class='text'>信息来源*: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{selectIfSc}}"> 
+              <text class='select_text'>{{selectSource[index2].text}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow2?(selectSource.length>2?100:selectSource.length*50):0}}rpx;'> 
+              <text class='option' id='{{item.text}}' wx:for='{{selectSource}}' wx:key='this' data-index='{{index}}' catchtap='optionTap2'>{{item.text}} 
+              </text> 
+          </view> 
+        </view> 
+      </view> 
+ 
+      <view class="picker"> 
+         
+        <text class='text'>是否绑定微信*: </text> 
+        <view class='radio_class'> 
+          <radio-group class="radio-group" bindchange="bindingChange"> 
+              <label class="radio" > 
+                  是<radio value="1" checked=""/> 
+              </label> 
+              <label class="radio" > 
+                  否<radio value="2" checked=""/> 
+              </label> 
+          </radio-group> 
+        </view> 
+      </view> 
+ 
+      <view class="picker"> 
+        <text class='text'>所属分店: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{selectStore}}"> 
+              <text class='select_text'>{{selectShop[index3].name}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow3?(selectShop.length>2?100:selectShop.length*50):0}}rpx;'> 
+              <text class='option' id='{{item.id}}' wx:for='{{selectShop}}' wx:key='this' data-index='{{index}}' catchtap='optionTap3'>{{item.name}} 
+              </text> 
+          </view> 
+        </view> 
+      </view> 
+ 
+      <view class="picker"> 
+        <text class='text'>所属部门: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{selectBranch}}"> 
+              <text class='select_text'>{{selectDepart[index4].name}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow4?(selectDepart.length>2?100:selectDepart.length*50):0}}rpx;'> 
+              <text class='option' id='{{item.id}}' wx:for='{{selectDepart}}' wx:key='this' data-index='{{index}}' catchtap='optionTap4'>{{item.name}} 
+              </text> 
+          </view> 
+        </view> 
+      </view> 
+ 
+      <view class="picker"> 
+        <picker mode="date" value="{{wechatDate}}" start="1970-09-01" end="2117-09-01" bindchange="wechatDateChange"> 
+          <text class='text'>微信绑定时间: </text> 
+          <input class='show_date' value='{{wechatDate}}'></input> 
+        </picker> 
+      </view> 
+ 
+      <view> 
+          <button wx:if = '{{flag}}' class='next_button' bindtap="next">下一步</button> 
+          <button wx:if = '{{!flag}}' class='next_button1' >下一步</button> 
+      </view> 
+      </view> 
+  </view> 
 </view>

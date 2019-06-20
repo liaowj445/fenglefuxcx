@@ -1,123 +1,171 @@
-/* pages/addClient/test2/addSerive.wxss */
-page {
-    background-color: #e5e5e5;
-}
-
-.theme{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 70rpx;
-  color:  #f00d20;
-}
-
-.picker{
-  margin:25rpx 25rpx 25rpx 25rpx ;
-}
-
-.text{
-  margin-left: 25rpx;
-  margin-top: 5rpx;
-}
-
-.input{
-  border: 1rpx solid #fff;
-  border-radius: 3rpx;
-  margin-right: 50rpx;
-}
-
-.show_date{
-  border: 1rpx solid #fff;
-  border-radius: 3rpx;
-  margin-right: 50rpx;
-}
-
-.select_box{
-  border-radius: 14rpx;
-  position: relative;
-  width: 200rpx; 
-  margin-right: 100rpx; 
-  height: 60rpx; 
-  line-height: 60rpx; 
+/* pages/addClient/test3/clientReq.wxss */ 
+page { 
+    background-color: #e5e5e5; 
+} 
+ 
+.theme{ 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 70rpx; 
+  color:  #f00d20; 
+} 
+ 
+.picker{ 
+  margin:25rpx 25rpx 25rpx 25rpx ; 
+} 
+ 
+.text{ 
+  margin-left: 25rpx; 
+  margin-top: 5rpx; 
+} 
+ 
+.input{ 
+  border: 1rpx solid #fff; 
+  border-radius: 3rpx; 
+  margin-right: 50rpx; 
+} 
+ 
+.show_date{ 
+  border: 1rpx solid #fff; 
+  border-radius: 3rpx; 
+  margin-right: 50rpx; 
+} 
+ 
+.select_box{ 
+  border-radius: 14rpx; 
+  position: relative; 
+  width: 200rpx;  
+  margin-right: 100rpx;  
+  height: 60rpx;  
+  line-height: 60rpx;  
+  background: #fff;  
+  color:#1e82d2;  
+  padding-right:0rpx;  
+  float: right; 
+} 
+ 
+.select{ 
+  box-sizing: border-box; 
+  width: 100%; 
+  height: 100%; 
+  border-radius: 8rpx; 
+  display: flex; 
+  align-items: center; 
+  padding: 0 10rpx; 
+} 
+ 
+.select_text{ 
+  font-size: 26rpx; 
+  color: #1e82d2; 
+  line-height: 28rpx; 
+  flex: 1; 
+  z-index: 1; 
+} 
+ 
+.select_img{ 
+  width: 30rpx; 
+  height: 30rpx; 
+  display: block; 
+  transition:transform 0.3s; 
+} 
+ 
+.select_img_rotate{ 
+  transform:rotate(180deg);  
+} 
+ 
+.option_box{ 
+  position: absolute; 
+  top: calc(100% - 1px); 
+  width: 100%; 
+  box-sizing: border-box; 
+  height: 0; 
+  overflow-y: auto; 
   background: #fff; 
-  color:#1e82d2; 
-  padding-right:0rpx; 
-  float: right;
+  transition: height 0.3s; 
+  border-left:1px solid #efefef; 
+  border-right:1px solid #efefef; 
+  z-index: 10; 
+} 
+ 
+.option{ 
+  display: block; 
+  line-height: 30rpx;  
+  font-size: 26rpx; 
+  border-top: 1px solid #efefef; 
+  border-bottom: 1px solid #efefef; 
+  padding: 10rpx; 
+} 
+ 
+.next_button{ 
+  display: block; 
+  margin: 0 auto; 
+  background-color: #4CAF50; /* Green */ 
+  border: none; 
+  color: white; 
+  padding: 15px 32px; 
+  text-align: center; 
+  text-decoration: none; 
+  font-size: 16px; 
+} 
+ 
+.radio_class{ 
+  display: flex; 
+  justify-content: center; 
+  margin: 0 auto; 
+} 
+ 
+._textarea{ 
+  border: 1rpx solid #fff; 
+  border-radius: 3rpx; 
+  margin-right: 50rpx; 
+  height: 200rpx; 
 }
 
-.select{
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  border-radius: 8rpx;
-  display: flex;
-  align-items: center;
-  padding: 0 10rpx;
+/*mask*/ 
+.drawer_screen { 
+  width: 100%;  
+  height: 100%;  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  z-index: -999;  
+  background: #000;  
+  opacity: 0.5;  
+  overflow: hidden;
 }
 
-.select_text{
-  font-size: 26rpx;
-  color: #1e82d2;
-  line-height: 28rpx;
-  flex: 1;
-  z-index: 1;
-}
+/*content*/ 
+.drawer_box { 
+  width: 650rpx;  
+  overflow: hidden;  
+  position: fixed;  
+  top: 50%;  
+  left: 0;  
+  z-index: 1001;  
+  background: rgb(255, 255, 255);  
+  margin: -150px 50rpx 0 50rpx;  
+  border-radius: 3px;  
+} 
+   
+.drawer_title{ 
+  padding:15px;  
+  font: 20px "microsoft yahei";  
+  text-align: center;  
+  background: rgb(255, 255, 255);
+} 
 
-.select_img{
-  width: 30rpx;
-  height: 30rpx;
-  display: block;
-  transition:transform 0.3s;
-}
-
-.select_img_rotate{
-  transform:rotate(180deg); 
-}
-
-.option_box{
-  position: absolute;
-  top: calc(100% - 1px);
-  width: 100%;
-  box-sizing: border-box;
-  height: 0;
-  overflow-y: auto;
-  background: #fff;
-  transition: height 0.3s;
-  border-left:1px solid #efefef;
-  border-right:1px solid #efefef;
-  z-index: 10;
-}
-
-.option{
-  display: block;
-  line-height: 30rpx; 
-  font-size: 26rpx;
-  border-top: 1px solid #efefef;
-  border-bottom: 1px solid #efefef;
-  padding: 10rpx;
-}
-
-.next_button{
-  display: block;
-  margin: 0 auto;
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.radio_class{
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-._textarea{
-  border: 1rpx solid #fff;
-  border-radius: 3rpx;
-  margin-right: 50rpx;
-  height: 200rpx;
-}
+.drawer_content { 
+  height: 210px;  
+  overflow-y: scroll; /*超出父盒子高度可滚动*/ 
+  background: rgb(255, 255, 255);  
+} 
+   
+.btn_ok{ 
+  padding: 10px;  
+  font: 20px "microsoft yahei";  
+  text-align: center;  
+  border-top: 1px solid #E8E8EA;  
+  color: #3CC51F;  
+  background: rgb(255, 255, 255);  
+} 

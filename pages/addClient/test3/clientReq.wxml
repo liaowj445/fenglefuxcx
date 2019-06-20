@@ -1,134 +1,144 @@
-<view>
-  <view>
-    <text class='theme'>阿姨要求</text>
-
-    <view class="picker">
-        <text class='text'>年龄: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{ageSelete}}">
-              <text class='select_text'>{{age[index].text}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow?(age.length>2?100:age.length*50):0}}rpx;'>
-              <text class='option' id='{{item.text}}' wx:for='{{age}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item.text}}
-          </text>
-        </view>
-      </view>
-    </view>
-
-    <view class="picker">
-      <picker mode="date" value="{{interviewDate}}" start="1970-09-01" end="2117-09-01" bindchange="interviewDateChange">
-        <text class='text'>邀约面试日期: </text>
-        <input class='show_date' value='{{interviewDateAndTime}}'></input>
-      </picker>
-    </view>
-
-    <view class="section">  
-      <picker mode="time" value="{{interviewTime}}" start="00:00" end="23:59" bindchange="interviewTimeChange">  
-        <text class="text"> 邀约面试时间 :</text>  
-      </picker>  
+<view> 
+  <view> 
+    <text class='theme'>阿姨要求</text> 
+ 
+    <view class="picker"> 
+        <text class='text'>年龄: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{ageSelete}}"> 
+              <text class='select_text'>{{age[index].text}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow?(age.length>2?100:age.length*50):0}}rpx;'> 
+              <text class='option' id='{{item.text}}' wx:for='{{age}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item.text}} 
+          </text> 
+        </view> 
+      </view> 
     </view> 
-
-    <view class="picker">
-      <text class='text'>要求阿姨籍贯: </text>
-      <input class='input' bindinput = 'nativePlace'></input>
-    </view>
-
-    <view class="picker">
-      <text class='text'>最小薪资: </text>
-      <input class='input' bindinput = 'salary_min'></input>
-    </view>
-
-    <view class="picker">
-      <text class='text'>最大薪资: </text>
-      <input class='input' bindinput = 'salary_max'></input>
-    </view>
-
-    <view class="picker">
-        <text class='text'>语言: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{languageSelect}}">
-              <text class='select_text'>{{language[index1].text}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow1?(language.length>2?100:language.length*50):0}}rpx;'>
-              <text class='option' id='{{item.text}}' wx:for='{{language}}' wx:key='this' data-index='{{index}}' catchtap='optionTap1'>{{item.text}}
-          </text>
-        </view>
-      </view>
-    </view>
-
-    <view class="picker">
-      <picker mode="date" value="{{arriveDate}}" start="1970-09-01" end="2117-09-01" bindchange="arriveDateChange">
-        <text class='text'>到岗日期: </text>
-        <input class='show_date' value='{{arriveDateAndTime}}'></input>
-      </picker>
-    </view>
-
-    <view class="section">  
-      <picker mode="time" value="{{arriveTime}}" start="00:00" end="23:59" bindchange="arriveTimeChange">  
-        <text class="text">到岗时间 :</text>  
-      </picker>  
+ 
+    <view class="picker"> 
+      <picker mode="date" value="{{interviewDate}}" start="1970-09-01" end="2117-09-01" bindchange="interviewDateChange"> 
+        <text class='text'>邀约面试日期: </text> 
+        <input class='show_date' value='{{interviewDateAndTime}}'></input> 
+      </picker> 
     </view> 
-
-    <view class="picker">
-        <text class='text'>保姆级别: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{rankSelect}}">
-              <text class='select_text'>{{rank[index2].text}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow2?(rank.length>2?100:rank.length*50):0}}rpx;'>
-              <text class='option' id='{{item.text}}' wx:for='{{rank}}' wx:key='this' data-index='{{index}}' catchtap='optionTap2'>{{item.text}}
-          </text>
-        </view>
-      </view>
+ 
+    <view class="section">   
+      <picker mode="time" value="{{interviewTime}}" start="00:00" end="23:59" bindchange="interviewTimeChange">   
+        <text class="text"> 邀约面试时间 :</text>   
+      </picker>   
+    </view>  
+ 
+    <view class="picker"> 
+      <text class='text'>要求阿姨籍贯: </text> 
+      <input class='input' bindinput = 'nativePlace'></input> 
+    </view> 
+ 
+    <view class="picker"> 
+      <text class='text'>最小薪资: </text> 
+      <input class='input' bindinput = 'salary_min'></input> 
+    </view> 
+ 
+    <view class="picker"> 
+      <text class='text'>最大薪资: </text> 
+      <input class='input' bindinput = 'salary_max'></input> 
+    </view> 
+ 
+    <view class="picker"> 
+        <text class='text'>语言: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{languageSelect}}"> 
+              <text class='select_text'>{{language[index1].text}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow1?(language.length>2?100:language.length*50):0}}rpx;'> 
+              <text class='option' id='{{item.text}}' wx:for='{{language}}' wx:key='this' data-index='{{index}}' catchtap='optionTap1'>{{item.text}} 
+          </text> 
+        </view> 
+      </view> 
+    </view> 
+ 
+    <view class="picker"> 
+      <picker mode="date" value="{{arriveDate}}" start="1970-09-01" end="2117-09-01" bindchange="arriveDateChange"> 
+        <text class='text'>到岗日期: </text> 
+        <input class='show_date' value='{{arriveDateAndTime}}'></input> 
+      </picker> 
+    </view> 
+ 
+    <view class="section">   
+      <picker mode="time" value="{{arriveTime}}" start="00:00" end="23:59" bindchange="arriveTimeChange">   
+        <text class="text">到岗时间 :</text>   
+      </picker>   
+    </view>  
+ 
+    <view class="picker"> 
+        <text class='text'>保姆级别: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{rankSelect}}"> 
+              <text class='select_text'>{{rank[index2].text}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow2?(rank.length>2?100:rank.length*50):0}}rpx;'> 
+              <text class='option' id='{{item.text}}' wx:for='{{rank}}' wx:key='this' data-index='{{index}}' catchtap='optionTap2'>{{item.text}} 
+          </text> 
+        </view> 
+      </view> 
+    </view> 
+ 
+    <view class="picker"> 
+      <text class='text'>休息天数: </text> 
+      <input class='input' bindinput = 'restNumOfDay'></input> 
+    </view> 
+ 
+    <view class="picker"> 
+        <text class='text'>属相: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{zodiacSelect}}"> 
+              <text class='select_text'>{{zodiac[index3]}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow3?(zodiac.length>2?100:zodiac.length*50):0}}rpx;'> 
+              <text class='option' id='{{item}}' wx:for='{{zodiac}}' wx:key='this' data-index='{{index}}' catchtap='optionTap3'>{{item}} 
+          </text> 
+        </view> 
+      </view> 
+    </view> 
+ 
+    <view class="picker"> 
+        <text class='text'>星座: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{itemsSelect}}"> 
+              <text class='select_text'>{{items[index4]}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow4?(items.length>2?100:items.length*50):0}}rpx;'> 
+              <text class='option' id='{{item}}' wx:for='{{items}}' wx:key='this' data-index='{{index}}' catchtap='optionTap4'>{{item}} 
+          </text> 
+        </view> 
+      </view> 
+    </view> 
+ 
+    <view class="picker"> 
+      <text class='text'>客户微信及最关心的问题: </text> 
+      <input class='input' bindinput = 'problem'></input> 
+    </view> 
+ 
+    <view class="picker"> 
+      <text class='text'>主要工作内容: </text> 
+      <textarea class='_textarea' bindinput = 'workContent'> 
+      </textarea> 
+    </view> 
+ 
+    <view class="drawer_box" wx:if="{{showModalStatus}}" > 
+      <view class='drawer_screen' bindtap='closeServe'></view>
+      <view class="drawer_content"> 
+        <view class="top grid"> 
+          <text>{{showMsg}}</text>
+        </view> 
+      </view> 
+      <view class="btn_ok" bindtap="closeServe" data-statu="close">确定</view> 
     </view>
 
-    <view class="picker">
-      <text class='text'>休息天数: </text>
-      <input class='input' bindinput = 'restNumOfDay'></input>
-    </view>
-
-    <view class="picker">
-        <text class='text'>属相: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{zodiacSelect}}">
-              <text class='select_text'>{{zodiac[index3]}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow3?(zodiac.length>2?100:zodiac.length*50):0}}rpx;'>
-              <text class='option' id='{{item}}' wx:for='{{zodiac}}' wx:key='this' data-index='{{index}}' catchtap='optionTap3'>{{item}}
-          </text>
-        </view>
-      </view>
-    </view>
-
-    <view class="picker">
-        <text class='text'>星座: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{itemsSelect}}">
-              <text class='select_text'>{{items[index4]}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow4?(items.length>2?100:items.length*50):0}}rpx;'>
-              <text class='option' id='{{item}}' wx:for='{{items}}' wx:key='this' data-index='{{index}}' catchtap='optionTap4'>{{item}}
-          </text>
-        </view>
-      </view>
-    </view>
-
-    <view class="picker">
-      <text class='text'>客户微信及最关心的问题: </text>
-      <input class='input' bindinput = 'problem'></input>
-    </view>
-
-    <view class="picker">
-      <text class='text'>主要工作内容: </text>
-      <textarea class='_textarea' bindinput = 'workContent'>
-      </textarea>
-    </view>
-
-    <view>
-      <view>
-          <button class='next_button' bindtap="save">保存</button>
-      </view>
-    </view>
-    
-  </view>
+    <view> 
+      <view> 
+          <button class='next_button' bindtap="save">保存</button> 
+      </view> 
+    </view> 
+     
+  </view> 
 </view>

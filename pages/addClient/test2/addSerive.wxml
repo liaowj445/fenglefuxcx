@@ -1,76 +1,76 @@
-<view>
-  <view>
-    <text class='theme'>服务信息</text>
-
-    <view class="picker">
-        <text class='text'>服务类型*: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{selectType}}">
-              <text class='select_text'>{{serveType[index].name}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow?(serveType.length>2?100:serveType.length*50):0}}rpx;'>
-              <text class='option' id='{{item.name}}' wx:for='{{serveType}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item.name}}
-          </text>
-        </view>
-      </view>
-    </view>
-
-    <view class="picker">
-      <text class='text'>服务地址*: </text>
-      <input class='input' bindinput = 'serveAddress'></input>
-    </view>
-
-    <view class="picker">
-        <text class='text'>服务模式*: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{selectMode}}">
-              <text class='select_text'>{{serveMode[index1].text}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow1?(serveMode.length>2?100:serveMode.length*50):0}}rpx;'>
-              <text class='option' id='{{item.text}}' wx:for='{{serveMode}}' wx:key='this' data-index='{{index}}' catchtap='optionTap1'>{{item.text}}
-          </text>
-        </view>
-      </view>
-    </view>
-
-    <view class="picker">
-      <text class='text'>家庭面积*: </text>
-      <input class='input' bindinput = 'homeArea'></input>
-    </view>
-
-    <view class="picker">
-        <text class='text'>菜式: </text>
-        <view class='select_box'>
-          <view class='select' catchtap='selectTap' data-tap="{{foodType}}">
-              <text class='select_text'>{{foodStyle[index2].text}}</text>
-          </view>
-          <view class='option_box' style='height:{{selectShow2?(foodStyle.length>2?100:foodStyle.length*50):0}}rpx;'>
-              <text class='option' id='{{item.text}}' wx:for='{{foodStyle}}' wx:key='this' data-index='{{index}}' catchtap='optionTap2'>{{item.text}}
-          </text>
-        </view>
-      </view>
-    </view>
-
-    <view class="picker">
-      <text class='text'>口味: </text>
-      <view class='radio_class'>
-        <radio-group class="radio-group" bindchange="taste">
-            <label class="radio" >
-                清淡<radio value="1" checked=""/>
-            </label>
-            <label class="radio" >
-                偏辣<radio value="2" checked=""/>
-            </label>
-        </radio-group>
-      </view>
-    </view>
-
-    <view>
-      <view>
-          <button wx:if = '{{flag}}' class='next_button' bindtap="next">下一步</button>
-          <button wx:if = '{{!flag}}' class='next_button1' >下一步</button>
-      </view>
-    </view>
-    
-  </view>
+<view> 
+  <view> 
+    <text class='theme'>服务信息</text> 
+ 
+    <view class="picker"> 
+        <text class='text'>服务类型*: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{selectType}}"> 
+              <text class='select_text'>{{serveType[index].name}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow?(serveType.length>2?100:serveType.length*50):0}}rpx;'> 
+              <text class='option' id='{{item.name}}' wx:for='{{serveType}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item.name}} 
+          </text> 
+        </view> 
+      </view> 
+    </view> 
+ 
+    <view class="picker"> 
+      <text class='text'>服务地址*: </text> 
+      <input class='input' bindinput = 'serveAddress'></input> 
+    </view> 
+ 
+    <view class="picker"> 
+        <text class='text'>服务模式*: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{selectMode}}"> 
+              <text class='select_text'>{{serveMode[index1].text}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow1?(serveMode.length>2?100:serveMode.length*50):0}}rpx;'> 
+              <text class='option' id='{{item.text}}' wx:for='{{serveMode}}' wx:key='this' data-index='{{index}}' catchtap='optionTap1'>{{item.text}} 
+          </text> 
+        </view> 
+      </view> 
+    </view> 
+ 
+    <view class="picker"> 
+      <text class='text'>家庭面积*: </text> 
+      <input class='input' bindinput = 'homeArea'></input> 
+    </view> 
+ 
+    <view class="picker"> 
+        <text class='text'>菜式: </text> 
+        <view class='select_box'> 
+          <view class='select' catchtap='selectTap' data-tap="{{foodType}}"> 
+              <text class='select_text'>{{foodStyle[index2].text}}</text> 
+          </view> 
+          <view class='option_box' style='height:{{selectShow2?(foodStyle.length>2?100:foodStyle.length*50):0}}rpx;'> 
+              <text class='option' id='{{item.text}}' wx:for='{{foodStyle}}' wx:key='this' data-index='{{index}}' catchtap='optionTap2'>{{item.text}} 
+          </text> 
+        </view> 
+      </view> 
+    </view> 
+ 
+    <view class="picker"> 
+      <text class='text'>口味: </text> 
+      <view class='radio_class'> 
+        <radio-group class="radio-group" bindchange="taste"> 
+            <label class="radio" > 
+                清淡<radio value="1" checked=""/> 
+            </label> 
+            <label class="radio" > 
+                偏辣<radio value="2" checked=""/> 
+            </label> 
+        </radio-group> 
+      </view> 
+    </view> 
+ 
+    <view> 
+      <view> 
+          <button wx:if = '{{flag}}' class='next_button' bindtap="next">下一步</button> 
+          <button wx:if = '{{!flag}}' class='next_button1' >下一步</button> 
+      </view> 
+    </view> 
+     
+  </view> 
 </view>
