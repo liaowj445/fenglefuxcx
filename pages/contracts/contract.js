@@ -79,7 +79,7 @@ Page({
     // const query = wx.createSelectorQuery();
     // var serach = query.select('#serach').fields({ properties: ['serach']});
     wx.request({
-      url: 'https://13.13.13.15:8443/flf/app/getContract',
+      url: 'https://localhost:8080/flf/app/getContract',
       method: 'POST',
       data:{
         cardName: that.data.serachName

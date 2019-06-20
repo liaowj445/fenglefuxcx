@@ -291,7 +291,7 @@ Page({
   next: function(e){
     console.log(wx.getStorageSync("sessionId"))
     wx.request({
-      url: 'https://13.13.13.15:8443/flf/app/insertContract',
+      url: 'https://localhost:8080/flf/app/insertContract',
       method: 'POST',
       data: {
         constellation: this.data.constellation

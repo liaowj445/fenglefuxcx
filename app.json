@@ -6,7 +6,10 @@
     "pages/client/client",
     "pages/contracts/contract",
     "pages/insertContracts/step1/insertContract",
-    "pages/insertContracts/step2/insertContract2"
+    "pages/insertContracts/step2/insertContract2",
+    "pages/addClient/test1/addMessage",
+    "pages/addClient/test2/addSerive",
+    "pages/addClient/test3/clientReq"
   ],
   "window": {
     "backgroundTextStyle": "light",

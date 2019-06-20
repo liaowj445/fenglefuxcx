@@ -254,5 +254,11 @@ Page({
         })
       }
     })
+  },
+
+  addClient:function(e){
+    wx.navigateTo({
+      url: '../addClient/test1/addMessage',
+    })
   }
 })

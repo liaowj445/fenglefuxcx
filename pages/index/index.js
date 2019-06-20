@@ -20,50 +20,50 @@ Page({
   },
 
   login: function () {
-    // wx.switchTab({
-    //   url: '../home/home',
-    // });
-    wx.request({
-      url: 'https://13.13.13.15:8443/flf/app/AppLogin',
-      method: 'POST',
-      data: {
-        loginId: this.data.userName,
-        password: this.data.pwd
-      },
-      header: {
-        'content-type': 'application/json',
-        'Cookie': ''
-      },
-      success: function (res) {
-        console.log(res.data)//打印到控制台
-        var msg = res.data;
-        if (msg == null) {
-          var toastText = '数据获取失败';
-          wx.showToast({
-            title: toastText,
-            icon: '',
-            duration: 2000
-          });
-        } else if(msg.success){
-          wx.setStorageSync('sessionId', msg.token);
-          console.log(msg.token)
-          wx.showToast({
-            title: msg.msg,
-            icon: '',
-            duration: 2000
-          });
-          wx.switchTab({
-            url: '../home/home',
-          });
-        } else{
-          wx.showToast({
-            title: msg.msg,
-            icon: '',
-            duration: 2000
-          });
-        }
-      }
-    })
+    wx.switchTab({
+      url: '../home/home',
+    });
+    // wx.request({
+    //   url: 'https://localhost:8080/flf/app/AppLogin',
+    //   method: 'POST',
+    //   data: {
+    //     loginId: this.data.userName,
+    //     password: this.data.pwd
+    //   },
+    //   header: {
+    //     'content-type': 'application/json',
+    //     'Cookie': ''
+    //   },
+    //   success: function (res) {
+    //     console.log(res.data)//打印到控制台
+    //     var msg = res.data;
+    //     if (msg == null) {
+    //       var toastText = '数据获取失败';
+    //       wx.showToast({
+    //         title: toastText,
+    //         icon: '',
+    //         duration: 2000
+    //       });
+    //     } else if(msg.success){
+    //       wx.setStorageSync('sessionId', msg.token);
+    //       console.log(msg.token)
+    //       wx.showToast({
+    //         title: msg.msg,
+    //         icon: '',
+    //         duration: 2000
+    //       });
+    //       wx.switchTab({
+    //         url: '../home/home',
+    //       });
+    //     } else{
+    //       wx.showToast({
+    //         title: msg.msg,
+    //         icon: '',
+    //         duration: 2000
+    //       });
+    //     }
+    //   }
+    // })
   },
 
   onLoad: function () {
